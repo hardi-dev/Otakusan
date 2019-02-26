@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, StatusBar } from 'react-native';
+import { View, Text, Dimensions, ScrollView } from 'react-native';
 import { EndPoint } from '../config';
 import cheerio from 'react-native-cheerio';
 import _ from 'lodash';
@@ -7,6 +7,7 @@ import PotraitCarousel from '../components/PotraitCarousel/PotraitCarousel';
 import CustomStatusBar from '../components/StatusBar/CustomStatusBar';
 import SectionTitle from '../components/SectionTitle/SectionTitle';
 import LandscapeCarousel from '../components/LandscapeCarousel/LandscapeCarousel';
+import Orientation from 'react-native-orientation';
 
 
 export default class HomeScreen extends Component {
@@ -20,6 +21,8 @@ export default class HomeScreen extends Component {
         isLoading: true,
         featuredAnimePage: 1
     };
+
+    Orientation.lockToPortrait();
   }
 
 
@@ -82,16 +85,16 @@ export default class HomeScreen extends Component {
     }
 
     return (
-      <View>
+      <ScrollView>
         <CustomStatusBar/>
 
         <SectionTitle/>
-        <PotraitCarousel data = { featuredAnime } />
+        <PotraitCarousel data = { featuredAnime } navigation = { navigation } />
 
         <SectionTitle/>
         <LandscapeCarousel data = { latestAnime } navigation = { navigation }/>
 
-      </View>
+      </ScrollView>
     );
   }
 }

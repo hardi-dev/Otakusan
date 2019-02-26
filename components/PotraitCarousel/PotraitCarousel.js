@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, Image } from 'react-native';
+import { View, Text, Dimensions, Image, TouchableOpacity } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { dimention } from '../../config';
 import { style } from './style';
@@ -27,12 +27,17 @@ export default class PotraitCarousel extends Component {
 
   _renderItem = ( {item, index} ) => {
     return (
-      <View>
+      <TouchableOpacity
+        activeOpacity={1}
+        onPress = { () => { 
+          this.props.navigation.navigate('Detail', { 
+              endpoint: item.endpoint }); 
+          }}>
         <Image
             style = { style.container } 
             source = {{ uri: item.thumb }}
           />
-      </View>
+      </TouchableOpacity>
     );
   }
 
