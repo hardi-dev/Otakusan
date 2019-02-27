@@ -9,7 +9,7 @@ const thumbHeight = thumbWidth + ( thumbWidth / 2 );
 export const style = StyleSheet.create({
     container: {
         width: width,
-        height: width - ( dimention.gutter * 2 ),
+        height: thumbHeight + 50,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

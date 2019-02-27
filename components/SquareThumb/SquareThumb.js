@@ -17,7 +17,7 @@ export default class SquareThumb extends Component {
 
     return (
       <ImageBackground 
-        blurRadius={10}
+        blurRadius={2}
         source = {{ uri: thumb }}
         style = { style.container } >
 

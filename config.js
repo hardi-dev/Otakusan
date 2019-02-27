@@ -24,10 +24,12 @@ export const color = {
         lighten: "#f58485"
     },
     dark : {
-        default: "#222f3e"
+        default: "#222f3e",
+        lighten: "#57606f"
     },
     gray: {
-        default: "#BABABA"
+        default: "#BABABA",
+        lighten: "#f1f2f6"
     },
     white: '#ffffff'
 

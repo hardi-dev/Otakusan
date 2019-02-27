@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import cheerio from 'react-native-cheerio';
 import _ from 'lodash';
+import { ID } from '../lang';
+import { commonStyle } from '../components/CommonStyle';
 import CustomStatusBar from '../components/StatusBar/CustomStatusBar';
 import SquareThumb from '../components/SquareThumb/SquareThumb';
+import SquareRoundedBtn from '../components/Button/SquareRoundedButton/SquareRoundedButton';
+import Synopsis from '../components/Synopsis/Synopsis';
+import Meta from '../components/Meta/Meta';
+import EpisodeList from '../components/EpisodeList/EpisodeList';
+
 
 export default class DetailScreen extends Component {
   constructor(props) {
@@ -30,7 +37,7 @@ export default class DetailScreen extends Component {
     
     const title = $('.jdlrs h1').text();
     const thumb = $('.attachment-post-thumbnail').attr('src');
-    const sinopsis = $('.sinopc em').first().text();
+    const sinopsis = $('.sinopc em').first().text().trim();
 
     const metaSelector = $('.fozer ul li');
     const meta = []
@@ -50,9 +57,10 @@ export default class DetailScreen extends Component {
             endpoint: $('.leftoff a', item).attr("href"),
             dateRelease: $('.rightoff', item).text()
         })
+        console.log(item)
     })
 
-    const animeDetail = { title, thumb, meta, episodeList }
+    const animeDetail = { title, thumb, meta, sinopsis, episodeList }
     this.setState({
         animeDetail,
         isLoading: false
@@ -75,6 +83,15 @@ export default class DetailScreen extends Component {
     return (
       <ScrollView>
           <SquareThumb  thumb = { animeDetail.thumb }  />
+          <View style = { commonStyle.container }>
+            <Text style = { commonStyle.title }> { animeDetail.title } </Text>
+            <SquareRoundedBtn text = { ID.play }/>
+            <Synopsis sinopsis = { animeDetail.sinopsis } />
+            <Meta meta = { animeDetail.meta } />
+          </View>
+          <View style = { commonStyle.container }>
+            <EpisodeList data = { animeDetail.episodeList }/>
+          </View>
       </ScrollView>
     );
   }
