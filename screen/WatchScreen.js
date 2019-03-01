@@ -43,6 +43,8 @@ export default class WatchScreen extends Component {
         videoUrl,
         isLoading: false
     })
+
+    console.log(videoUrl);
   }
 
   onFullScrenn = () => {

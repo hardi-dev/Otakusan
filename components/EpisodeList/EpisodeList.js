@@ -10,13 +10,20 @@ export default class EpisodeList extends Component {
     };
   }
 
+  handlePlayVideo = (endpoint) => {
+	this.props.navigation.navigate('Watch', { 
+		endpoint: endpoint });
+
+		console.log(endpoint)
+  }
+
   _item = (item, idx) => {
       return (
         <View style = { style.itemContainer } key = { idx }>
             <Text style = {[ style.text, style.number ]} > { idx + 1 } </Text>
             <Text style = {[ style.text, style.episode ]} > { `Episode ${item.episode}` } </Text>
-            <ButtonCircleBordered endpoint = { item.endpoint }/>
-            <ButtonCircleFill endpoint = { item.endpoint } />
+            <ButtonCircleBordered />
+            <ButtonCircleFill onPress = { () => this.handlePlayVideo(item.endpoint) }/>
         </View>
       )
   }

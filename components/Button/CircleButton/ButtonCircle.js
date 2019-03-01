@@ -7,11 +7,9 @@ class ButtonCircleFill extends Component {
         super()
     }
     render() {
-
-        const { endpoint } = this.props
         
         return (
-            <TouchableOpacity style = { [style.outer, style.fillPrimary] }>
+            <TouchableOpacity style = { [style.outer, style.fillPrimary] } {...this.props}>
                 <Text>P</Text>
             </TouchableOpacity>
         )
@@ -23,11 +21,9 @@ class ButtonCircleBordered extends Component {
         super()
     }
     render() {
-
-        const { endpoint } = this.props
         
         return (
-            <TouchableOpacity style = { [style.outer, style.bordered] }>
+            <TouchableOpacity style = { [style.outer, style.bordered]} {...this.props} >
                 <Text>P</Text>
             </TouchableOpacity>
         )
