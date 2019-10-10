@@ -76,7 +76,8 @@ export default class WatchScreen extends Component {
       <View style = {{ width: videoWidth, height: videoHeight, backgroundColor: 'red' }}>
         <VideoPlayer
             style = {{ flex: 1}}
-            source={{ uri: videoUrl }}
+            source={{ uri: 'https://r4---sn-npoeener.googlevideo.com/videoplayback?id=086ddee27fcbb38f&itag=18&source=picasa&begin=0&requiressl=yes&mm=30&mn=sn-npoeener&ms=nxu&mv=m&pl=20&sc=yes&ei=32p6XK-yAoyq1AbimISoCw&susc=ph&app=fife&mime=video/mp4&dur=1420.085&lmt=1551482269690362&mt=1551526477&ip=36.77.233.65&ipbits=8&expire=1551533823&sparams=ip,ipbits,expire,id,itag,source,requiressl,mm,mn,ms,mv,pl,sc,ei,susc,app,mime,dur,lmt&signature=79CF2853FC44C2B3F853D9DDC58D91333763EB180F25D93F3FE81D9EE8AF1137.7A81B2558CD05A2C7009CF15DEF58EFA6EEFF19D2337796ACAAFEDB917350283&key=us0' }}
+            // source={{ uri: videoUrl }}
             onEnterFullscreen = { () => this.onFullScrenn() }
             onBack = { () => this.goBack() }
             disableFullscreen = { isFullScreen }
